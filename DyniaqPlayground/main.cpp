@@ -12,10 +12,15 @@ using namespace std;
 
 string oneTwo(string str) {
     stringstream stringStream;
-    for (int i = 0; i < str.length() - 2; i += 3) {
+    long strLength = str.length();
+    for (int i = 0; i < strLength - 2; i += 3) {
         stringStream << str[i + 1] << str[i + 2] << str[i];
     }
-    return stringStream.str();;
+    int strLengthMod = strLength % 3;
+    if (strLengthMod != 0) {
+        stringStream << str.substr(strLength-strLengthMod, strLength);
+    }
+    return stringStream.str();
 }
 
 /*
@@ -32,5 +37,7 @@ int main() {
     assert(oneTwo("abc") == "bca");
     assert(oneTwo("tca") == "cat");
     assert(oneTwo("tcagdo") == "catdog");
+    assert(oneTwo("tcado") == "catdo");
+    assert(oneTwo("ialbceob") == "alicebob");
     return 0;
 }
