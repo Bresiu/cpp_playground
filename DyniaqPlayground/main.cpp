@@ -18,7 +18,7 @@ string oneTwo(string str) {
     }
     int strLengthMod = strLength % 3;
     if (strLengthMod != 0) {
-        stringStream << str.substr(strLength-strLengthMod, strLength);
+        stringStream << str.substr(strLength - strLengthMod, strLength);
     }
     return stringStream.str();
 }
